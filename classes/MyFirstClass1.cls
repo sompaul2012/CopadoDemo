@@ -1,0 +1,15 @@
+public class MyFirstClass1 {
+    
+    private string firstname ='';
+    private string lastname ='';
+    
+    public MyFirstClass1()
+    {
+        //insert code here
+    }
+    public static void sendRequest()
+    {
+        //insert code here
+    }
+
+}
