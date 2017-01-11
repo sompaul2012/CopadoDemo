@@ -136,12 +136,13 @@
                 });
             </script>
         </div>
-        
+    </apex:form>
+	<apex:form id="USform">    
         <div id="wrapper">
             <div id="left" style="width:50%; margin-left:0px; float:left;">
                 <apex:pageBlock id="pbLeft" title="{!$Label.copado__USER_STORIES_NOT_INCLUDED_IN_PROMOTION}" >
                     <apex:pageBlockButtons id="pbButtons2" location="top">
-                        <apex:commandButton status="tblStatus" reRender="theForm" id="btnGetUserStories" value="{!$Label.copado__ADD_SELECTED_USER_STORIES}" action="{!addStoriesToPromotion}" />
+                        <apex:commandButton status="tblStatus" reRender="USform" id="btnGetUserStories" value="{!$Label.copado__ADD_SELECTED_USER_STORIES}" action="{!addStoriesToPromotion}" />
                     </apex:pageBlockButtons>
 
                     <apex:actionStatus id="tblStatus" onstop="levelPageBlockHeight()" onstart="levelPageBlockHeight()">
@@ -195,9 +196,9 @@
                 <apex:pageBlock id="pbRight" title="{!$Label.copado__USER_STORIES_TO_BE_PROMOTED}" >
                     <apex:pageBlockButtons id="pbButtons1" location="top">
                         <button id="btnRemoveSelected" class="btn" value="{!$Label.REMOVE_SELECTED_USER_STORIES}" onclick="deleteSelections(); return false;">{!$Label.REMOVE_SELECTED_USER_STORIES}</button>
-                        <apex:commandButton reRender="theForm" id="btnCreateDeployment" value="{!$Label.copado__CREATE_DEPLOYMENT}" onclick="document.getElementById('floater').style.display='block'; return false;" styleClass="btnImportant" disabled="{!!enableCreateDeploymentButton}" />
+                        <apex:commandButton reRender="USform" id="btnCreateDeployment" value="{!$Label.copado__CREATE_DEPLOYMENT}" onclick="document.getElementById('floater').style.display='block'; return false;" styleClass="btnImportant" disabled="{!!enableCreateDeploymentButton}" />
                     </apex:pageBlockButtons>
-                    <apex:actionFunction name="doRemove" reRender="theForm" action="{!removeSelectedUserStories}" status="tblStatus1"/>
+                    <apex:actionFunction name="doRemove" reRender="USform" action="{!removeSelectedUserStories}" status="tblStatus1"/>
                     <apex:actionStatus id="tblStatus1" onstop="levelPageBlockHeight()" onstart="levelPageBlockHeight()">
                         <apex:facet name="start">           
                             <table class="list" border="0" cellspacing="0" cellpadding="0">
